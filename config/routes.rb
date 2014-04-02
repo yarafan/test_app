@@ -1,10 +1,12 @@
 TestApp::Application.routes.draw do
   
+  get "password_resets/new"
   resources :users 
   resources :sessions
   resources :posts do
     resources :comments
   end
+  resources :password_resets
   
   get '/signup', to: 'users#new', as: 'signup'
   get '/signin', to: 'sessions#new', as: 'signin'

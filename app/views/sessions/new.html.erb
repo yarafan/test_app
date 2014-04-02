@@ -4,7 +4,7 @@
 
 <p> Login<%= text_field_tag :login, params[:login] %> </p> 
 <p> Password <%= password_field_tag :password %> </p> 
-
+<p><%= link_to "forgotten password?", new_password_reset_path %></p>
 <p> <%= submit_tag "Sign in" %> </p>
 
 <% end %>
