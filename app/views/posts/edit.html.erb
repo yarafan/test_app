@@ -1,0 +1,11 @@
+<h1> Edit post</h1>
+
+<%= render 'shared/errors_message', :object => @post %>
+
+<%= form_for @post do |f| %>
+
+<%= render partial: 'form', locals: { f:f } %>
+
+<p><%= f.submit "Update post" %></p>
+
+<% end %>

@@ -1,0 +1,10 @@
+<p><h3>
+  <%= link_to_unless_current post.title, post_path(post) %> 
+</h3></p> 
+<p> Author:
+  <%= link_to post.user.login, user_path(post.user) %>
+</p>
+<p> <strong> Text:</strong>
+<%= simple_format post.text %>
+</p>
+<%= image_tag post.image.url%>

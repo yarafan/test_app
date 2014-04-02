@@ -1,0 +1,25 @@
+<h1>Post </h1>
+
+<%= render partial: @post %>
+
+<% if current_user?(@post.user) || current_user.try(:moder)%>
+
+<p> 
+  <%= link_to "Edit", edit_post_path(@post) %> 
+</p> 
+<p>
+  <%= link_to "Delete", post_path(@post), method: :delete,
+  										  data:{confirm: "Are you sure?"} %> 
+</p>
+
+<% end %>
+<p> <%= link_to "Back", posts_path %></p>
+
+<h2>Comments</h2>
+<% if signed_in? %>
+<div id="posts_list">
+  <%= render :partial => @post.comments %>
+</div>
+<%= render partial: "com_form" %>
+
+<% end %>

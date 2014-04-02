@@ -1,0 +1,18 @@
+<% @posts.each do |post| %>
+
+  <tr>
+    <td> <%= image_tag post.image.url(:thumb) %></td>
+    <td> <%= link_to post.user.login, user_path(post.user) %> </td>
+    <td> <%= link_to post.title, post_path(post) %> </td>
+    <td> <%= post.text %> </td>
+
+  <% if current_user?(post.user) || current_user.try(:moder) %>
+
+    <td> <%= link_to "Edit", edit_post_path(post) %> </td> 
+    <td> <%= link_to "Delete", post_path(post), method: :delete,                     data: { confirm: "Are you sure?" } %> 
+    </td>
+  </tr>
+  
+  <% end %>
+        
+<% end %>
