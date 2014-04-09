@@ -4,6 +4,10 @@
     <td> <%= image_tag post.image.url(:thumb) %></td>
     <td> <%= link_to post.user.login, user_path(post.user) %> </td>
     <td> <%= link_to post.title, post_path(post) %> </td>
+    <td>
+      <strong>Tags:</strong>
+  <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+    </td>
     <td> <%= RedCloth.new(truncate(post.text, length: 160, separator: " "), [:filter_html]).to_html.html_safe %> </td>
 
   <% if current_user?(post.user) || current_user.try(:moder) %>

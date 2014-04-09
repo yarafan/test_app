@@ -15,6 +15,7 @@ TestApp::Application.routes.draw do
   get'/remove_admin/:id', to: 'users#remove_admin', as: 'remove_admin'
   get'/make_moder/:id', to: 'users#make_moder', as: 'make_moder'
   get'/remove_moder/:id', to: 'users#remove_moder', as: 'remove_moder'
+  get 'tags/:tag', to: 'posts#index', as: :tag
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

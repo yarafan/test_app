@@ -1,11 +1,14 @@
 class PostsController < ApplicationController
   
   def index
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag])
+    else
     @search = Post.search do
     fulltext params[:search]
-
-     end
+    end
     @posts = @search.results
+    end
   end
 
   def new
@@ -48,6 +51,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-  	 params.require(:post).permit(:title, :text, :image, :tags)
+  	 params.require(:post).permit(:title, :text, :image, :tag_list)
   end
 end

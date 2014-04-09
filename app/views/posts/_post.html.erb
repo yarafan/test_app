@@ -7,5 +7,7 @@
 <p> <strong> Text:</strong>
 <%= RedCloth.new(post.text, [:filter_html]).to_html.html_safe %>
 </p>
+<p> <strong>Tags:</strong> 
+  <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 <p> <%= image_tag post.image.url%> </p>
 
