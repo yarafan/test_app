@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
   
   def index
-    @posts = Post.all
+    @search = Post.search do
+    fulltext params[:search]
+
+     end
+    @posts = @search.results
   end
 
   def new
@@ -44,6 +48,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-  	 params.require(:post).permit(:title, :text, :image)
+  	 params.require(:post).permit(:title, :text, :image, :tags)
   end
 end

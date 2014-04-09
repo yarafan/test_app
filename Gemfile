@@ -8,6 +8,9 @@ gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 gem "paperclip", "~> 4.1"
 gem "RedCloth", :require => 'redcloth'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+gem 'acts-as-taggable-on'
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'

@@ -5,4 +5,13 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :image,:content_type => /\Aimage\/.*\Z/
   belongs_to :user  
   has_many :comments
+
+  searchable do 
+    text :title
+    text :text
+    text :author do |post|
+      post.user.login 
+    end
+    
+  end
 end
